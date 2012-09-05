@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Patient Medical History </title>
+
+		<!-- Meta Tags -->
+		<meta charset="utf-8">
+		<meta name="robots" content="index, follow">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="css/jquery.mobile-1.2.0-alpha.1.min.css" rel="stylesheet" />
+		<link href="css/app.css" rel="stylesheet" />
+
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/jquery.mobile-1.2.0-alpha.1.min.js"></script>
+		<script src="js/jSignature.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('a').each(function() {
+					$(this).attr('data-transition', 'flip');
+				});
+				console.log('Creating signature pad...');
+				var sigdiv = $("#mySignature").jSignature({
+					'UndoButton' : true
+				});
+				//, $tools = $('#tools'), $extraarea = $('#displayarea'), pubsubprefix = 'jSignature.demo.'
+			});
+		</script>
+	</head>
+
+	<body>		
+	
+		<form id="form65" name="form65" class="wufoo topLabel page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="">
+
+		<!-- Patient page -->
+		<div data-role="page" data-title="Patient Info" id="patient" data-theme="b">
+			<div data-role="header" data-position="fixed" data-id="foo">
+				<h1 id="logo"> Patient Information </h1>
+				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+			</div>
+			<center>
+			<div style="text-align:center; margin:10px 150px 10px 150px; padding:10px 20px 10px 20px;border:10px solid #abc; border-radius:12px;background-color:#fff">
+				<img src="images/nbimcchonj.jpg"/>
+			</div>
+			</center>
+			<div data-role="content">
+				<label for="patient_id">Patient ID</label> </span>
+				<input id="patient_id" name="patient_id" type="text" value="" size="8" tabindex="1" />
+				<fieldcontainer>
+				<label for="Field0">First Name</label> </span>
+				<input id="Field0" name="Field0" type="text" value="" size="8" tabindex="1" />
+				<label for="Field1">Last Name</label> </span>
+				<input id="Field1" name="Field1" type="text" value="" size="14" tabindex="2" />
+				</fieldcontainer>
+				<label class="desc" id="title2" for="Field2"> Date </label>
+				<input id="Field2" name="Field2" type="date" value="" size="14" tabindex="3" />
+				<label class="desc" id="title3" for="Field3"> Chief Complaint: </label>
+				<textarea id="Field3" name="Field3" class="field textarea small" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
+			</div>
+			
+			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar" ><ul>
+				<li><a href="#patient" class="ui-btn-active ui-state-persist">Patient Info</a></li>
+				<li><a href="#history">History</a></li>
+				<li><a href="#systems">Systems</a></li>
+				<li><a href="#diagnostics">Diagnostics</a></li>
+				<li><a href="#signature">Signature</a></li>
+			</ul></div></div>
+			</ul></div></div></div>
+				
+		</div>
+	
+		<!-- History page -->
+		<div data-role="page" data-title="History and Physical" id="history" data-theme="a">
+			<div data-role="header" data-position="fixed" data-id="foo">
+				<h1 id="logo"> Patient History and Physical </h1>
+				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+			</div>
+			<div data-role="content">
+						<ul>
+							<li id="foli4"
+							class="notranslate">
+								<label class="desc" id="title4" for="Field4"> History of Present Illness: </label>
+								<div>
+									<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
+								</div>
+							</li>
+							<li id="foli207" class="notranslate">
+								<fieldset data-role="controlgroup" data-type="horizontal">
+									<legend id="title207" class="desc">
+										Family History: <i>(check all that apply)</i>
+									</legend>
+									<div>
+										<span>
+											<input id="Field207" name="Field207" type="checkbox" class="field checkbox" value="Cancer" tabindex="16" />
+											<label class="choice" for="Field207">Cancer</label> </span>
+										<span>
+											<input id="Field208" name="Field208" type="checkbox" class="field checkbox" value="HeartDisease" tabindex="17" />
+											<label class="choice" for="Field208">Heart Disease</label> </span>
+										<span>
+											<input id="Field211" name="Field211" type="checkbox" class="field checkbox" value="Diabetes" tabindex="20" />
+											<label class="choice" for="Field211">Diabetes</label> </span>
+										<span>
+											<input id="Field212" name="Field212" type="checkbox" class="field checkbox" value="HighCholesterol" tabindex="21" />
+											<label class="choice" for="Field212">High Cholesterol</label> </span>
+										<span>
+											<input id="Field213" name="Field213" type="checkbox" class="field checkbox" value="HighBloodPressure" tabindex="22" />
+											<label class="choice" for="Field213">High Blood Pressure</label> </span>
+										<span>
+											<input id="Field214" name="Field214" type="checkbox" class="field checkbox" value="Other" tabindex="23" />
+											<label class="choice" for="Field214">Other:</label>
+											<input id="Field215" name="Field215" type="text" class="field text fn" value="" size="20" tabindex="24" />
+										</span>
+									</div>
+								</fieldset>
+							</li>
+
+							<li id="foli7" class="notranslate      ">
+								<fieldset data-role="controlgroup" data-type="horizontal">
+									<legend id="title7" class="desc">
+										PMH: <i>(check if positive)</i>
+									</legend>
+									<div>
+										<span>
+											<input id="Field7" name="Field7" type="checkbox" class="field checkbox" value="AIDS" tabindex="7" />
+											<label class="choice" for="Field7">AIDS</label> </span>
+										<span>
+											<input id="Field8" name="Field8" type="checkbox" class="field checkbox" value="Anemia" tabindex="8" />
+											<label class="choice" for="Field8">Anemia</label> </span>
+										<span>
+											<input id="Field9" name="Field9" type="checkbox" class="field checkbox" value="Bleeding Disorders" tabindex="9" />
+											<label class="choice" for="Field9">Bleeding Disorders</label> </span>
+										<span>
+											<input id="Field10" name="Field10" type="checkbox" class="field checkbox" value="Cancer" tabindex="10" />
+											<label class="choice" for="Field10">Cancer</label> </span>
+										<span>
+											<input id="Field11" name="Field11" type="checkbox" class="field checkbox" value="Diabetes" tabindex="11" />
+											<label class="choice" for="Field11">Diabetes</label> </span>
+										<span>
+											<input id="Field12" name="Field12" type="checkbox" class="field checkbox" value="Hepatitis" tabindex="12" />
+											<label class="choice" for="Field12">Hepatitis</label> </span>
+										<span>
+											<input id="Field13" name="Field13" type="checkbox" class="field checkbox" value="Heart Disease" tabindex="13" />
+											<label class="choice" for="Field13">Heart Disease</label> </span>
+										<span>
+											<input id="Field14" name="Field14" type="checkbox" class="field checkbox" value="High Cholesterol" tabindex="14" />
+											<label class="choice" for="Field14">High Cholesterol</label> </span>
+										<span>
+											<input id="Field15" name="Field15" type="checkbox" class="field checkbox" value="Pneumonia" tabindex="15" />
+											<label class="choice" for="Field15">Pneumonia</label> </span>
+										<span>
+											<input id="Field16" name="Field16" type="checkbox" class="field checkbox" value="TB" tabindex="16" />
+											<label class="choice" for="Field16">TB</label> </span>
+										<span>
+											<input id="Field17" name="Field17" type="checkbox" class="field checkbox" value="Other" tabindex="16" />
+											<label class="choice" for="Field17">Other(s):</label>
+											<input id="Field18" name="Field18" type="text" class="field text fn" value="" size="20" tabindex="17" />
+										</span>
+									</div>
+								</fieldset>
+							</li>
+
+							<li id="foli4" class="notranslate      ">
+								<label class="desc" id="title4" for="Field4"> Please list any medication allergies that you have : </label>
+
+								<div>
+									<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="36" onkeyup="" ></textarea>
+								</div>
+							</li>
+							<li id="foli306"
+							class="notranslate      ">
+								<label class="desc" id="title306" for="Field306"> Please list any medications you are currently taking (and dosage if known) : </label>
+
+								<div>
+									<textarea id="Field306" name="Field306" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="37" onkeyup="" ></textarea>
+								</div>
+							</li>
+							<li id="foli308" class="notranslate       ">
+								<label class="desc" id="title308" for="Field308"> If you are a woman, are you currently pregnant, or is there a possibility that you are pregnant? </label>
+								<div>
+									<select id="Field308" name="Field308" class="field select medium" tabindex="38" >
+										<option value="" selected="selected"></option>
+										<option value="Yes" > Yes </option>
+										<option value="No" > No </option>
+									</select>
+								</div>
+							</li>
+						</ul>
+				</div>
+			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
+				<li><a href="#patient">Patient Info</a></li>
+				<li><a href="#history" class="ui-btn-active ui-state-persist">History</a></li>
+				<li><a href="#systems">Systems</a></li>
+				<li><a href="#diagnostics">Diagnostics</a></li>
+				<li><a href="#signature">Signature</a></li>
+			</ul></div></div>
+			</ul></div></div></div>
+		</div>
+
+		<!-- Systems page -->
+		<div data-role="page" data-title="Review of Systems" id="systems" data-theme="b">
+			<div data-role="header" data-position="fixed" data-id="foo">
+				<h1 id="logo"> Systems and Appearance </h1>
+				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+			</div>
+			<div data-role="content">
+						<ul>
+							<li id="foli310" class="notranslate      ">
+								<fieldset data-role="controlgroup" data-type="horizontal">
+									<legend id="title310" class="desc">
+										Are you currently using or do you have a history of tobacco use?
+									</legend>
+									<div>
+										<input id="radioDefault_310" name="Field310" type="hidden" value="" />
+										<span>
+											<input id="Field310_0" name="Field310" type="radio" class="field radio" value="Yes" tabindex="39" />
+											<label class="choice" for="Field310_0" > Yes</label> </span>
+										<span>
+											<input id="Field310_1" name="Field310" type="radio" class="field radio" value="No" tabindex="40" />
+											<label class="choice" for="Field310_1" > No</label> </span>
+									</div>
+								</fieldset>
+							</li>
+							<li id="foli311" class="notranslate      ">
+								<fieldset data-role="controlgroup" data-type="horizontal">
+									<legend id="title311" class="desc">
+										Are you currently using or do you have a history of illegal drug use?
+									</legend>
+									<div>
+										<input id="radioDefault_311" name="Field311" type="hidden" value="" />
+										<span>
+											<input id="Field311_0" name="Field311" type="radio" class="field radio" value="Yes" tabindex="41" />
+											<label class="choice" for="Field311_0" > Yes</label> </span>
+										<span>
+											<input id="Field311_1" name="Field311" type="radio" class="field radio" value="No" tabindex="42" />
+											<label class="choice" for="Field311_1" > No</label> </span>
+									</div>
+								</fieldset>
+							</li>
+							<li id="foli313" class="notranslate      ">
+								<fieldset data-role="controlgroup" data-type="horizontal">
+									<legend id="title313" class="desc">
+										Do you feel you are at risk for falls or falling injuries?
+									</legend>
+									<div>
+										<input id="radioDefault_313" name="Field313" type="hidden" value="" />
+										<span>
+											<input id="Field313_0" name="Field313" type="radio" class="field radio" value="Yes" tabindex="43" />
+											<label class="choice" for="Field313_0" > Yes</label> </span>
+										<span>
+											<input id="Field313_1" name="Field313" type="radio" class="field radio" value="No" tabindex="44" />
+											<label class="choice" for="Field313_1" > No</label> </span>
+									</div>
+								</fieldset>
+							</li>
+							<li id="foli312" class="notranslate      ">
+								<fieldset data-role="controlgroup" data-type="horizontal">
+									<legend id="title312" class="desc">
+										Please describe your alcohol consumption :
+									</legend>
+									<div>
+										<input id="radioDefault_312" name="Field312" type="hidden" value="" />
+										<span>
+											<input id="Field312_0" name="Field312" type="radio" class="field radio" value="Daily" tabindex="45" />
+											<label class="choice" for="Field312_0" > Daily</label> </span>
+										<span>
+											<input id="Field312_1" name="Field312" type="radio" class="field radio" value="Weekly" tabindex="46" />
+											<label class="choice" for="Field312_1" > Weekly</label> </span>
+										<span>
+											<input id="Field312_2" name="Field312" type="radio" class="field radio" value="Monthly" tabindex="47" />
+											<label class="choice" for="Field312_2" > Monthly</label> </span>
+										<span>
+											<input id="Field312_3" name="Field312" type="radio" class="field radio" value="Occasionally" tabindex="48" />
+											<label class="choice" for="Field312_3" > Occasionally</label> </span>
+										<span>
+											<input id="Field312_4" name="Field312" type="radio" class="field radio" value="Rarely" tabindex="49" />
+											<label class="choice" for="Field312_4" > Rarely</label> </span>
+										<span>
+											<input id="Field312_5" name="Field312" type="radio" class="field radio" value="Never" tabindex="50" />
+											<label class="choice" for="Field312_5" > Never</label> </span>
+									</div>
+								</fieldset>
+							</li>
+						</ul>
+				</div>
+			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
+				<li><a href="#patient">Patient Info</a></li>
+				<li><a href="#history">History</a></li>
+				<li><a href="#systems" class="ui-btn-active ui-state-persist">Systems</a></li>
+				<li><a href="#diagnostics">Diagnostics</a></li>
+				<li><a href="#signature">Signature</a></li>
+			</ul></div></div>
+			</ul></div></div></div>
+		</div>
+	
+	
+		<!-- Diagnostics -->
+		<div data-role="page" data-title="Diagnostics" id="diagnostics" data-theme="d">
+			<div data-role="header" data-position="fixed" data-id="foo">
+				<h1 id="logo"> Diagnostics </h1>
+				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+			</div>
+		
+			<div data-role="content">
+ 				<div data-role="fieldcontain">
+  					<label for="textarea"><b>DIAGNOSTIC RESULTS:</b></label>
+  					<textarea name="textarea" id="textarea">
+  					</textarea>
+ 				</div>
+ 				
+ 				<div data-role="fieldcontain">
+  					<label for="textarea"><b>ASSESSMENT:</b> <i>(differential Diagnosis)</i></label>
+  					<textarea name="textarea" id="textarea">
+  					</textarea>
+ 				</div>
+ 				
+				<div data-role="fieldcontain">
+  					<label for="textarea"><b>PLAN:</b></label>
+  					<textarea name="textarea" id="textarea">
+  					</textarea>
+ 				</div> 	
+	
+
+					<fieldset data-role="controlgroup" data-type="horizontal">
+								<legend class="desc">Smoking Cessation:</legend>
+									<div>
+										<input id="radioDefault_314" name="Field314" type="hidden" value="" />
+										<span>
+											<input id="Field314_0" name="Field314" type="radio" class="field radio" value="Counseled" tabindex="39" />
+											<label class="choice" for="Field314_0" > Counseled </label> </span>
+										<span>
+											<input id="Field314_1" name="Field314" type="radio" class="field radio" value="NotNeeded" tabindex="40" />
+											<label class="choice" for="Field314_1" > Not Needed</label> </span>
+									</div>
+					</fieldset>
+					
+					<fieldset data-role="controlgroup" data-type="horizontal">
+						<legend class="desc">Pain Management::</legend>
+							 	<div>
+									<select id="Field315" name="Field315" class="field select medium" tabindex="38" >
+										<option value="Not Needed" > Not Needed </option>
+										<option value="Oral" > Oral </option>
+										<option value="IV_PCA"> IV Incl. PCA </option>
+										<option value="Non_Pharma"> Non Pharmacological </option>
+									</select>
+								</div>	
+					</fieldset>
+					
+					<fieldset data-role="controlgroup" data-type="horizontal">
+								<legend class="desc">Vaccine:</legend>
+									<div>
+										<input id="radioDefault_316" name="Field316" type="hidden" value="" />
+										<span>
+											<input id="Field316_0" name="Field316" type="radio" class="field radio" value="Pneumovax" tabindex="39" />
+											<label class="choice" for="Field316_0" > Pneumovax To Be Given </label> </span>
+										<span>
+											<input id="Field316_1" name="Field316" type="radio" class="field radio" value="Influenza" tabindex="40" />
+											<label class="choice" for="Field316_1" > Influenza To Be Given (if Applicable) </label> </span>
+									</div>
+					</fieldset>
+
+			</div>
+			
+			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
+				<li><a href="#patient">Patient Info</a></li>
+				<li><a href="#history">History</a></li>
+				<li><a href="#systems">Systems</a></li>
+				<li><a href="#diagnostics" class="ui-btn-active ui-state-persist">Diagnostics</a></li>
+				<li><a href="#signature">Signature</a></li>
+			</ul></div></div>
+		</div>
+		
+		<!-- Signature -->
+		<div data-role="page" data-title="Signature" id="signature" data-theme="e">
+			<div data-role="header" data-position="fixed" data-id="foo">
+				<h1 id="logo"> Signature </h1>
+				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+			</div>
+	
+			<div data-role="content">
+							<div id="mySignatureparent" data-role="none">
+								Physician Signature:
+								<div id="mySignature"></div>
+							</div>
+							
+							<div data-role="fieldcontain">
+								Physician's Full Name:
+								<input type="text" />
+							</div>
+
+							<div data-role="fieldcontain">
+								Beeper #:
+								<input type="tel" />
+							</div>
+
+							<div data-role="fieldcontain">
+								Source of History:
+								<input type="text"/>
+							</div>
+
+							<div>
+								<input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit"/>
+							</div>
+				</div>
+			
+			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
+				<li><a href="#patient">Patient Info</a></li>
+				<li><a href="#history">History</a></li>
+				<li><a href="#systems">Systems</a></li>
+				<li><a href="#diagnostics">Diagnostics</a></li>
+				<li><a href="#signature"  class="ui-btn-active ui-state-persist">Signature</a></li>
+			</ul></div></div>
+			</ul></div></div></div>
+		</div>
+		
+		</form>
+	</body>
+</html>
