@@ -6,26 +6,15 @@
 		<!-- Meta Tags -->
 		<meta charset="utf-8">
 		<meta name="robots" content="index, follow">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
+		<meta name="x-blackberry-defaultHoverEffect" content="false" />
+		<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
+		
 		<link href="css/jquery.mobile-1.2.0-alpha.1.min.css" rel="stylesheet" />
 		<link href="css/app.css" rel="stylesheet" />
 
 		<script src="js/jquery-1.7.2.min.js"></script>
 		<script src="js/jquery.mobile-1.2.0-alpha.1.min.js"></script>
 		<script src="js/jSignature.min.js"></script>
-		<script>
-			$(document).ready(function() {
-				$('a').each(function() {
-					$(this).attr('data-transition', 'flip');
-				});
-				console.log('Creating signature pad...');
-				var sigdiv = $("#mySignature").jSignature({
-					'UndoButton' : true
-				});
-				//, $tools = $('#tools'), $extraarea = $('#displayarea'), pubsubprefix = 'jSignature.demo.'
-			});
-		</script>
 	</head>
 
 	<body>		
@@ -44,16 +33,16 @@
 			</div>
 			</center>
 			<div data-role="content">
-				<label for="patient_id">Patient ID</label> </span>
-				<input id="patient_id" name="patient_id" type="text" value="" size="8" tabindex="1" />
-				<fieldcontainer>
-				<label for="Field0">First Name</label> </span>
-				<input id="Field0" name="Field0" type="text" value="" size="8" tabindex="1" />
-				<label for="Field1">Last Name</label> </span>
-				<input id="Field1" name="Field1" type="text" value="" size="14" tabindex="2" />
-				</fieldcontainer>
-				<label class="desc" id="title2" for="Field2"> Date </label>
-				<input id="Field2" name="Field2" type="date" value="" size="14" tabindex="3" />
+ 				<div data-role="fieldcontain">
+					<label for="patient_id">Patient ID</label> </span>
+					<input id="patient_id" name="patient_id" type="text" value="" size="8" tabindex="1" />
+					<label for="Field0">First Name</label> </span>
+					<input id="Field0" name="Field0" type="text" value="" size="8" tabindex="1" />
+					<label for="Field1">Last Name</label> </span>
+					<input id="Field1" name="Field1" type="text" value="" size="14" tabindex="2" />
+					<label class="desc" id="title2" for="Field2"> Date </label>
+					<input id="Field2" name="Field2" type="date" value="" size="14" tabindex="3" />
+				</div>
 				<label class="desc" id="title3" for="Field3"> Chief Complaint: </label>
 				<textarea id="Field3" name="Field3" class="field textarea small" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
 			</div>
@@ -294,7 +283,7 @@
 	
 	
 		<!-- Diagnostics -->
-		<div data-role="page" data-title="Diagnostics" id="diagnostics" data-theme="d">
+		<div data-role="page" data-title="Diagnostics" id="diagnostics" data-theme="e">
 			<div data-role="header" data-position="fixed" data-id="foo">
 				<h1 id="logo"> Diagnostics </h1>
 				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
@@ -370,16 +359,16 @@
 		</div>
 		
 		<!-- Signature -->
-		<div data-role="page" data-title="Signature" id="signature" data-theme="e">
+		<div data-role="page" data-title="Signature" id="signature" data-theme="a">
 			<div data-role="header" data-position="fixed" data-id="foo">
 				<h1 id="logo"> Signature </h1>
 				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			</div>
 	
-			<div data-role="content">
+			<div data-role="content" data-role="none"> 
 							<div id="mySignatureparent" data-role="none">
 								Physician Signature:
-								<div id="mySignature"></div>
+								<div id="mySignature" data-role="none"></div>
 							</div>
 							
 							<div data-role="fieldcontain">
@@ -413,5 +402,16 @@
 		</div>
 		
 		</form>
+		<script>
+			$(document).ready(function() {
+				$('a').each(function() {
+					$(this).attr('data-transition', 'slidefade');
+				});
+				console.log('Creating signature pad...');
+				$("#mySignature").jSignature({'UndoButton' : true});
+				$("#mySignature").css('height', '150px');
+				//, $tools = $('#tools'), $extraarea = $('#displayarea'), pubsubprefix = 'jSignature.demo.'
+			});
+		</script>
 	</body>
 </html>

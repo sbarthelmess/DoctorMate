@@ -32,6 +32,7 @@ rim:header="RIM-Widget:rim/widget">
 	<rim:permissions>
 		<rim:permit>read_device_identifying_information</rim:permit>
 	</rim:permissions>
+	<rim:orientation mode="landscape"/>
 	<rim:loadingScreen backgroundColor="#ffffff"
 		onFirstLaunch="true"
 		backgroundImage="images/newark_back.jpg"
