@@ -16,7 +16,7 @@ limitations under the License.
 -->
 <widget xmlns="http://www.w3.org/ns/widgets"
 xmlns:rim="http://www.blackberry.com/ns/widgets"
-version="1.0.1"
+version="1.0.3"
 rim:header="RIM-Widget:rim/widget">
 	<!--id="Beth Israel"> -->
 

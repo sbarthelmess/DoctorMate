@@ -21,7 +21,7 @@
 	<body onload="app.init()">
 		<div id="myPage" data-role="none" style="visibility:hidden">
 
-		<form id="form65" name="form65" class="wufoo topLabel page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="">
+		<form id="form65" name="form65" class="wufoo topLabel page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="complete.html">
 
 		<!-- Signature -->
 		<!-- NOTE: This needs to be created first, though it doesn't need to be default. -->
@@ -407,9 +407,10 @@
 		<script>
 			$(document).ready(function() {
 				var $sigdiv = $("#signature").jSignature({'UndoButton':true});
+				var transitions = [ 'pop', 'slide', 'fade', 'flip', 'flow', 'turn', 'slidefade', 'slide', 'slideup', 'slidedown' ];
 				$('a').each(function() {
 					// Set the default page transitions
-                	$(this).attr('data-transition', 'flow');
+                	$(this).attr('data-transition', transitions[Math.floor(Math.random()*10)]);
 				});
 			});			
 			var app = {
@@ -418,7 +419,7 @@
 					window.setTimeout(app.homePage, 100); 
 				},
 				homePage: function() {
-					$.mobile.changePage($("#patient"), 'none');
+					$.mobile.changePage($("#patient"), 'fade');
 						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 100); 
 					}
 			}
