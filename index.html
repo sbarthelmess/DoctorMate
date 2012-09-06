@@ -15,12 +15,58 @@
 		<script src="js/jquery-1.7.2.min.js"></script>
 		<script src="js/jquery.mobile-1.2.0-alpha.1.min.js"></script>
 		<script src="js/jSignature.min.js"></script>
+		<script src="js/jSignature.SignHere.js"></script> 	
 	</head>
 
-	<body>		
-	
+	<body onload="app.init()">
+		<div id="myPage" data-role="none" style="visibility:hidden">
+
 		<form id="form65" name="form65" class="wufoo topLabel page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="">
 
+		<!-- Signature -->
+		<!-- NOTE: This needs to be created first, though it doesn't need to be default. -->
+		<div data-role="page" data-title="Signature" id="signoff" data-theme="a">
+			<div data-role="header" data-position="fixed" data-id="foo">
+				<h1 id="logo"> Signature </h1>
+				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+			</div>
+	
+			<div data-role="content" data-role="none"> 
+					<div data-role="fieldcontain">
+							<div id="signatureparent" data-role="none">
+								<div id="signature" data-role="none"></div>
+							</div>
+					<div>
+						
+							<div data-role="fieldcontain">
+								Physician's Full Name:
+								<input type="text" />
+							</div>
+
+							<div data-role="fieldcontain">
+								Beeper #:
+								<input type="tel" />
+							</div>
+
+							<div data-role="fieldcontain">
+								Source of History:
+								<input type="text"/>
+							</div>
+
+							<div>
+								<input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit"/>
+							</div>
+				</div>
+			
+			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
+				<li><a href="#patient">Patient Info</a></li>
+				<li><a href="#history">History</a></li>
+				<li><a href="#systems">Systems</a></li>
+				<li><a href="#diagnostics">Diagnostics</a></li>
+				<li><a href="#signoff"  class="ui-btn-active ui-state-persist">Signatures</a></li>
+			</ul></div></div>
+			</ul></div>
+		</div></div>
 		<!-- Patient page -->
 		<div data-role="page" data-title="Patient Info" id="patient" data-theme="b">
 			<div data-role="header" data-position="fixed" data-id="foo">
@@ -52,17 +98,16 @@
 				<li><a href="#history">History</a></li>
 				<li><a href="#systems">Systems</a></li>
 				<li><a href="#diagnostics">Diagnostics</a></li>
-				<li><a href="#signature">Signature</a></li>
+				<li><a href="#signoff">Signatures</a></li>
 			</ul></div></div>
-			</ul></div></div></div>
-				
+			</ul>
 		</div>
 	
 		<!-- History page -->
 		<div data-role="page" data-title="History and Physical" id="history" data-theme="a">
 			<div data-role="header" data-position="fixed" data-id="foo">
 				<h1 id="logo"> Patient History and Physical </h1>
-				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+				<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			</div>
 			<div data-role="content">
 						<ul>
@@ -180,11 +225,11 @@
 				<li><a href="#history" class="ui-btn-active ui-state-persist">History</a></li>
 				<li><a href="#systems">Systems</a></li>
 				<li><a href="#diagnostics">Diagnostics</a></li>
-				<li><a href="#signature">Signature</a></li>
+				<li><a href="#signoff">Signatures</a></li>
 			</ul></div></div>
-			</ul></div></div></div>
+			</ul>
 		</div>
-
+			
 		<!-- Systems page -->
 		<div data-role="page" data-title="Review of Systems" id="systems" data-theme="b">
 			<div data-role="header" data-position="fixed" data-id="foo">
@@ -276,9 +321,9 @@
 				<li><a href="#history">History</a></li>
 				<li><a href="#systems" class="ui-btn-active ui-state-persist">Systems</a></li>
 				<li><a href="#diagnostics">Diagnostics</a></li>
-				<li><a href="#signature">Signature</a></li>
+				<li><a href="#signoff">Signatures</a></li>
 			</ul></div></div>
-			</ul></div></div></div>
+			</ul>
 		</div>
 	
 	
@@ -308,8 +353,7 @@
   					</textarea>
  				</div> 	
 	
-
-					<fieldset data-role="controlgroup" data-type="horizontal">
+				<fieldset data-role="controlgroup" data-type="horizontal">
 								<legend class="desc">Smoking Cessation:</legend>
 									<div>
 										<input id="radioDefault_314" name="Field314" type="hidden" value="" />
@@ -354,64 +398,32 @@
 				<li><a href="#history">History</a></li>
 				<li><a href="#systems">Systems</a></li>
 				<li><a href="#diagnostics" class="ui-btn-active ui-state-persist">Diagnostics</a></li>
-				<li><a href="#signature">Signature</a></li>
+				<li><a href="#signoff">Signatures</a></li>
 			</ul></div></div>
 		</div>
+
+		</div> <!-- End of Page wrapper myPage -->
 		
-		<!-- Signature -->
-		<div data-role="page" data-title="Signature" id="signature" data-theme="a">
-			<div data-role="header" data-position="fixed" data-id="foo">
-				<h1 id="logo"> Signature </h1>
-				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
-			</div>
-	
-			<div data-role="content" data-role="none"> 
-							<div id="mySignatureparent" data-role="none">
-								Physician Signature:
-								<div id="mySignature" data-role="none"></div>
-							</div>
-							
-							<div data-role="fieldcontain">
-								Physician's Full Name:
-								<input type="text" />
-							</div>
-
-							<div data-role="fieldcontain">
-								Beeper #:
-								<input type="tel" />
-							</div>
-
-							<div data-role="fieldcontain">
-								Source of History:
-								<input type="text"/>
-							</div>
-
-							<div>
-								<input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit"/>
-							</div>
-				</div>
-			
-			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
-				<li><a href="#patient">Patient Info</a></li>
-				<li><a href="#history">History</a></li>
-				<li><a href="#systems">Systems</a></li>
-				<li><a href="#diagnostics">Diagnostics</a></li>
-				<li><a href="#signature"  class="ui-btn-active ui-state-persist">Signature</a></li>
-			</ul></div></div>
-			</ul></div></div></div>
-		</div>
-		
-		</form>
 		<script>
 			$(document).ready(function() {
+				var $sigdiv = $("#signature").jSignature({'UndoButton':true});
 				$('a').each(function() {
-					$(this).attr('data-transition', 'slidefade');
+					// Set the default page transitions
+                	$(this).attr('data-transition', 'flow');
 				});
-				console.log('Creating signature pad...');
-				$("#mySignature").jSignature({'UndoButton' : true});
-				$("#mySignature").css('height', '150px');
-				//, $tools = $('#tools'), $extraarea = $('#displayarea'), pubsubprefix = 'jSignature.demo.'
-			});
+			});			
+			var app = {
+				init: function() { 
+					// Send to desired home page once page is loaded
+					window.setTimeout(app.homePage, 100); 
+				},
+				homePage: function() {
+					$.mobile.changePage($("#patient"), 'none');
+						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 100); 
+					}
+			}
 		</script>
+
+		</form>
 	</body>
 </html>

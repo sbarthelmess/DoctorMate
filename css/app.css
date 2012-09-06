@@ -1,14 +1,13 @@
-#mySignatureparent {
+#signatureparent {
 		color:darkblue;
 		background-color:darkgrey;
-		/*max-width:600px;*/
-		margin-left: 10%;
-		padding:20px; width:800px; height: 200px;
-		border:5px; border-radius:15px;
+		width:800px;
+		padding:20px; 
+		margin-left:90px; 
+		border:3px; border-radius:25px;
 	}
 
 /*This is the div within which the signature canvas is fitted*/
-#mySignature {
-		border: 2px dotted black; height:150px;
-		background-color:lightgrey; 
-}
+#signature {
+		border: 2px dotted black; 
+		background-color:lightgrey; }
