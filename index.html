@@ -10,6 +10,8 @@
 		<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
 		
 		<link href="css/jquery.mobile-1.2.0-alpha.1.min.css" rel="stylesheet" />
+		<!-- <link href="css/BethIsrael.min.css" rel="stylesheet" /> -->
+		
 		<link href="css/app.css" rel="stylesheet" />
 
 		<script src="js/jquery-1.7.2.min.js"></script>
@@ -32,12 +34,10 @@
 			</div>
 	
 			<div data-role="content" data-role="none"> 
-					<div data-role="fieldcontain">
 							<div id="signatureparent" data-role="none">
 								<div id="signature" data-role="none"></div>
 							</div>
-					<div>
-						
+
 							<div data-role="fieldcontain">
 								Physician's Full Name:
 								<input type="text" />
@@ -65,19 +65,18 @@
 				<li><a href="#diagnostics">Diagnostics</a></li>
 				<li><a href="#signoff"  class="ui-btn-active ui-state-persist">Signatures</a></li>
 			</ul></div></div>
-			</ul></div>
-		</div></div>
+		</div>
+		
 		<!-- Patient page -->
-		<div data-role="page" data-title="Patient Info" id="patient" data-theme="b">
+		<div data-role="page" data-title="Patient Info" id="patient" data-theme="a">
 			<div data-role="header" data-position="fixed" data-id="foo">
-				<h1 id="logo"> Patient Information </h1>
+				<h1 id="patient_logo"> Patient Information </h1>
 				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			</div>
-			<center>
-			<div style="text-align:center; margin:10px 150px 10px 150px; padding:10px 20px 10px 20px;border:10px solid #abc; border-radius:12px;background-color:#fff">
-				<img src="images/nbimcchonj.jpg"/>
+			<div style="text-align:center; margin: 10px 85px 0 85px; padding-top:20px;border:10px solid #abc; border-radius:12px;background-color:#fff">
+				<img src="images/bethisrael_logo.jpg"/>
 			</div>
-			</center>
+
 			<div data-role="content">
  				<div data-role="fieldcontain">
 					<label for="patient_id">Patient ID</label> </span>
@@ -100,7 +99,6 @@
 				<li><a href="#diagnostics">Diagnostics</a></li>
 				<li><a href="#signoff">Signatures</a></li>
 			</ul></div></div>
-			</ul>
 		</div>
 	
 		<!-- History page -->
@@ -227,11 +225,10 @@
 				<li><a href="#diagnostics">Diagnostics</a></li>
 				<li><a href="#signoff">Signatures</a></li>
 			</ul></div></div>
-			</ul>
 		</div>
 			
 		<!-- Systems page -->
-		<div data-role="page" data-title="Review of Systems" id="systems" data-theme="b">
+		<div data-role="page" data-title="Review of Systems" id="systems" data-theme="a">
 			<div data-role="header" data-position="fixed" data-id="foo">
 				<h1 id="logo"> Systems and Appearance </h1>
 				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
@@ -323,7 +320,6 @@
 				<li><a href="#diagnostics">Diagnostics</a></li>
 				<li><a href="#signoff">Signatures</a></li>
 			</ul></div></div>
-			</ul>
 		</div>
 	
 	
@@ -402,15 +398,19 @@
 			</ul></div></div>
 		</div>
 
+		</form>
+
 		</div> <!-- End of Page wrapper myPage -->
 		
 		<script>
 			$(document).ready(function() {
 				var $sigdiv = $("#signature").jSignature({'UndoButton':true});
-				var transitions = [ 'pop', 'slide', 'fade', 'flip', 'flow', 'turn', 'slidefade', 'slide', 'slideup', 'slidedown' ];
+				//var transitions = [ 'pop', 'slide', 'fade', 'flip', 'flow', 'turn', 'slidefade', 'slide', 'slideup', 'slidedown' ];
+				var transition = 'slidefade';
 				$('a').each(function() {
 					// Set the default page transitions
-                	$(this).attr('data-transition', transitions[Math.floor(Math.random()*10)]);
+					//transition = transitions[Math.floor(Math.random()*10)]
+                	$(this).attr('data-transition', transition);
 				});
 			});			
 			var app = {
@@ -419,12 +419,11 @@
 					window.setTimeout(app.homePage, 100); 
 				},
 				homePage: function() {
-					$.mobile.changePage($("#patient"), 'fade');
-						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 100); 
+					$.mobile.changePage($("#patient"), 'none');
+						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 500); 
 					}
 			}
 		</script>
 
-		</form>
 	</body>
 </html>
