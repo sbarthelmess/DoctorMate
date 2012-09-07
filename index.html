@@ -416,11 +416,11 @@
 			var app = {
 				init: function() { 
 					// Send to desired home page once page is loaded
-					window.setTimeout(app.homePage, 100); 
+					window.setTimeout(app.homePage, 200); 
 				},
 				homePage: function() {
 					$.mobile.changePage($("#patient"), 'none');
-						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 500); 
+						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 1000); 
 					}
 			}
 		</script>
