@@ -3,12 +3,9 @@
 	<head>
 		<title> Patient Medical History </title>
 
-		<!-- Meta Tags -->
-		<meta charset="utf-8">
-		<meta name="robots" content="index, follow">
 		<meta name="x-blackberry-defaultHoverEffect" content="false" />
 		<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
-		
+
 		<link href="css/jquery.mobile-1.2.0-alpha.1.min.css" rel="stylesheet" />
 		<!-- <link href="css/BethIsrael.min.css" rel="stylesheet" /> -->
 		
@@ -34,9 +31,11 @@
 			</div>
 	
 			<div data-role="content" data-role="none"> 
+						<div data-role="fieldcontain">
 							<div id="signatureparent" data-role="none">
 								<div id="signature" data-role="none"></div>
 							</div>
+						</div>
 
 							<div data-role="fieldcontain">
 								Physician's Full Name:
@@ -416,11 +415,11 @@
 			var app = {
 				init: function() { 
 					// Send to desired home page once page is loaded
-					window.setTimeout(app.homePage, 200); 
+					window.setTimeout(app.homePage, 100); 
 				},
 				homePage: function() {
 					$.mobile.changePage($("#patient"), 'none');
-						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 1000); 
+						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 100); 
 					}
 			}
 		</script>
