@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Patient Medical History </title>
+		<title> DoctorMate </title>
 
 		<meta name="x-blackberry-defaultHoverEffect" content="false" />
 		<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=no,target-densitydpi=device-dpi" />
@@ -19,7 +19,7 @@
 
 	<body onload="app.init()">
 		<div id="myPage" data-role="none" style="visibility:hidden">
-
+			
 		<form id="form65" name="form65" class="wufoo topLabel page" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="complete.html">
 
 		<!-- Signature -->
@@ -31,31 +31,22 @@
 			</div>
 	
 			<div data-role="content" data-role="none"> 
-						<div data-role="fieldcontain">
-							<div id="signatureparent" data-role="none">
-								<div id="signature" data-role="none"></div>
-							</div>
+					<div data-role="fieldcontain">
+						<div id="signatureparent" data-role="none">
+							<div id="signature" data-role="none"></div>
 						</div>
+					</div>
+					<fieldset class="ui-grid-a">
+						<div class="ui-block-a"> Physician's Full Name: <input type="text" /></div>
+						<div class="ui-block-b"> Beeper #: <input type="tel" /></div>	   
+					</fieldset>
 
-							<div data-role="fieldcontain">
-								Physician's Full Name:
-								<input type="text" />
-							</div>
+					<div data-role="fieldcontain"> Source of History: <input type="text"/></div>
 
-							<div data-role="fieldcontain">
-								Beeper #:
-								<input type="tel" />
-							</div>
-
-							<div data-role="fieldcontain">
-								Source of History:
-								<input type="text"/>
-							</div>
-
-							<div>
-								<input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit"/>
-							</div>
-				</div>
+					<div>
+						<input id="saveForm" name="saveForm" class="btTxt submit" type="submit" value="Submit"/>
+					</div>
+			</div>
 			
 			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
 				<li><a href="#patient">Patient Info</a></li>
@@ -72,23 +63,38 @@
 				<h1 id="patient_logo"> Patient Information </h1>
 				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			</div>
-			<div style="text-align:center; margin: 10px 85px 0 85px; padding-top:20px;border:10px solid #abc; border-radius:12px;background-color:#fff">
-				<img src="images/bethisrael_logo.jpg"/>
+			<div style="text-align:center; margin: 5px 115px 0px 115px; padding-top:10px;border:5px solid #abc; border-radius:12px;background-color:#fff">
+				<img src="images/bethisrael_newark_logo.jpg"/>
 			</div>
 
 			<div data-role="content">
- 				<div data-role="fieldcontain">
-					<label for="patient_id">Patient ID</label> </span>
-					<input id="patient_id" name="patient_id" type="text" value="" size="8" tabindex="1" />
+ 				<fieldset class="ui-grid-a">
+					<div class="ui-block-a">
+						<label for="patient_id">Patient ID</label>
+						<input id="patient_id" name="patient_id" type="text" value="" size="8" tabindex="1" />
+					</div>
+					<div class="ui-block-b">	   
+						<label class="desc" id="title2" for="Field2"> Date </label>
+						<input id="Field2" name="Field2" type="date" value="" size="8" tabindex="2" />
+					</div>
+				</fieldset>
+				<div data-role="fieldcontain">
 					<label for="Field0">First Name</label> </span>
-					<input id="Field0" name="Field0" type="text" value="" size="8" tabindex="1" />
+					<input id="Field0" name="Field0" type="text" value="" size="8" tabindex="3" />
 					<label for="Field1">Last Name</label> </span>
-					<input id="Field1" name="Field1" type="text" value="" size="14" tabindex="2" />
-					<label class="desc" id="title2" for="Field2"> Date </label>
-					<input id="Field2" name="Field2" type="date" value="" size="14" tabindex="3" />
+					<input id="Field1" name="Field1" type="text" value="" size="14" tabindex="4" />
 				</div>
-				<label class="desc" id="title3" for="Field3"> Chief Complaint: </label>
-				<textarea id="Field3" name="Field3" class="field textarea small" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
+				<div class="ui-grid-b">
+					<label class="ui-block-a" style="width:40%" id="title3" for="Field3"> Chief Complaint: </label>
+					<fieldset data-mini="true" style="width:60%" class="ui-block-b" data-role="controlgroup" data-type="horizontal">
+						<button type="button" data-mini="false" data-role="button" data-icon="gear"  data-iconpos="right" id="record">Record</button>
+						<button type="button" data-mini="false" data-role="button" data-icon="alert" data-iconpos="right" id="pause">Pause</button>
+						<button type="button" data-mini="false" data-role="button" data-icon="delete" data-iconpos="right" id="stop">Stop</button>
+						<button type="button" data-mini="false" data-role="button" data-icon="rarrow" data-iconpos="right" id="play">Play</button>
+					</fieldset>
+				</div>
+				<textarea class="ui-block-solo" id="Field3" name="Field3" class="field textarea small" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
+
 			</div>
 			
 			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar" ><ul>
@@ -97,7 +103,7 @@
 				<li><a href="#systems">Systems</a></li>
 				<li><a href="#diagnostics">Diagnostics</a></li>
 				<li><a href="#signoff">Signatures</a></li>
-			</ul></div></div>
+			</div></div>
 		</div>
 	
 		<!-- History page -->
@@ -107,56 +113,30 @@
 				<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			</div>
 			<div data-role="content">
-						<ul>
-							<li id="foli4"
-							class="notranslate">
-								<label class="desc" id="title4" for="Field4"> History of Present Illness: </label>
-								<div>
-									<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
-								</div>
-							</li>
-							<li id="foli207" class="notranslate">
-								<fieldset data-role="controlgroup" data-type="horizontal">
-									<legend id="title207" class="desc">
-										Family History: <i>(check all that apply)</i>
-									</legend>
-									<div>
-										<span>
-											<input id="Field207" name="Field207" type="checkbox" class="field checkbox" value="Cancer" tabindex="16" />
-											<label class="choice" for="Field207">Cancer</label> </span>
-										<span>
-											<input id="Field208" name="Field208" type="checkbox" class="field checkbox" value="HeartDisease" tabindex="17" />
-											<label class="choice" for="Field208">Heart Disease</label> </span>
-										<span>
-											<input id="Field211" name="Field211" type="checkbox" class="field checkbox" value="Diabetes" tabindex="20" />
-											<label class="choice" for="Field211">Diabetes</label> </span>
-										<span>
-											<input id="Field212" name="Field212" type="checkbox" class="field checkbox" value="HighCholesterol" tabindex="21" />
-											<label class="choice" for="Field212">High Cholesterol</label> </span>
-										<span>
-											<input id="Field213" name="Field213" type="checkbox" class="field checkbox" value="HighBloodPressure" tabindex="22" />
-											<label class="choice" for="Field213">High Blood Pressure</label> </span>
-										<span>
-											<input id="Field214" name="Field214" type="checkbox" class="field checkbox" value="Other" tabindex="23" />
-											<label class="choice" for="Field214">Other:</label>
-											<input id="Field215" name="Field215" type="text" class="field text fn" value="" size="20" tabindex="24" />
-										</span>
-									</div>
-								</fieldset>
-							</li>
-
-							<li id="foli7" class="notranslate      ">
-								<fieldset data-role="controlgroup" data-type="horizontal">
-									<legend id="title7" class="desc">
-										PMH: <i>(check if positive)</i>
-									</legend>
-									<div>
-										<span>
-											<input id="Field7" name="Field7" type="checkbox" class="field checkbox" value="AIDS" tabindex="7" />
-											<label class="choice" for="Field7">AIDS</label> </span>
-										<span>
-											<input id="Field8" name="Field8" type="checkbox" class="field checkbox" value="Anemia" tabindex="8" />
-											<label class="choice" for="Field8">Anemia</label> </span>
+				<label class="desc" id="title4" for="Field4"> History of Present Illness: </label>
+				<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
+					<fieldset data-role="controlgroup" data-type="horizontal">
+						<legend id="title207" class="desc">Family History: <i>(check all that apply)</i></legend>
+						<input id="Field207" name="Field207" type="checkbox" class="field checkbox" value="Cancer" tabindex="16" />
+						<label class="choice" for="Field207">Cancer</label> 
+						<input id="Field208" name="Field208" type="checkbox" class="field checkbox" value="HeartDisease" tabindex="17" />
+						<label class="choice" for="Field208">Heart Disease</label> 
+						<input id="Field211" name="Field211" type="checkbox" class="field checkbox" value="Diabetes" tabindex="20" />
+						<label class="choice" for="Field211">Diabetes</label> 
+						<input id="Field212" name="Field212" type="checkbox" class="field checkbox" value="HighCholesterol" tabindex="21" />
+						<label class="choice" for="Field212">High Cholesterol</label> 
+						<input id="Field213" name="Field213" type="checkbox" class="field checkbox" value="HighBloodPressure" tabindex="22" />
+						<label class="choice" for="Field213">High Blood Pressure</label> 
+						<input id="Field214" name="Field214" type="checkbox" class="field checkbox" value="Other" tabindex="23" />
+						<label class="choice" for="Field214">Other:</label>
+						<input id="Field215" name="Field215" type="text" class="field text fn" value="" size="20" tabindex="24" />
+					</fieldset>
+					<fieldset data-role="controlgroup" data-type="horizontal">
+						<legend id="title7" class="desc"> PMH: <i>(check if positive)</i></legend>
+						<input id="Field7" name="Field7" type="checkbox" class="field checkbox" value="AIDS" tabindex="7" />
+						<label class="choice" for="Field7">AIDS</label> 
+						<input id="Field8" name="Field8" type="checkbox" class="field checkbox" value="Anemia" tabindex="8" />
+						<label class="choice" for="Field8">Anemia</label>
 										<span>
 											<input id="Field9" name="Field9" type="checkbox" class="field checkbox" value="Bleeding Disorders" tabindex="9" />
 											<label class="choice" for="Field9">Bleeding Disorders</label> </span>
@@ -186,44 +166,26 @@
 											<label class="choice" for="Field17">Other(s):</label>
 											<input id="Field18" name="Field18" type="text" class="field text fn" value="" size="20" tabindex="17" />
 										</span>
-									</div>
-								</fieldset>
-							</li>
+					</fieldset>
 
-							<li id="foli4" class="notranslate      ">
 								<label class="desc" id="title4" for="Field4"> Please list any medication allergies that you have : </label>
-
-								<div>
-									<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="36" onkeyup="" ></textarea>
-								</div>
-							</li>
-							<li id="foli306"
-							class="notranslate      ">
+								<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="36" onkeyup="" ></textarea>
 								<label class="desc" id="title306" for="Field306"> Please list any medications you are currently taking (and dosage if known) : </label>
-
-								<div>
-									<textarea id="Field306" name="Field306" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="37" onkeyup="" ></textarea>
-								</div>
-							</li>
-							<li id="foli308" class="notranslate       ">
+								<textarea id="Field306" name="Field306" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="37" onkeyup="" ></textarea>
 								<label class="desc" id="title308" for="Field308"> If you are a woman, are you currently pregnant, or is there a possibility that you are pregnant? </label>
-								<div>
-									<select id="Field308" name="Field308" class="field select medium" tabindex="38" >
+								<select id="Field308" name="Field308" class="field select medium" tabindex="38" >
 										<option value="" selected="selected"></option>
 										<option value="Yes" > Yes </option>
 										<option value="No" > No </option>
-									</select>
-								</div>
-							</li>
-						</ul>
-				</div>
+								</select>
+			</div>
 			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
 				<li><a href="#patient">Patient Info</a></li>
 				<li><a href="#history" class="ui-btn-active ui-state-persist">History</a></li>
 				<li><a href="#systems">Systems</a></li>
 				<li><a href="#diagnostics">Diagnostics</a></li>
 				<li><a href="#signoff">Signatures</a></li>
-			</ul></div></div>
+			</div></div>
 		</div>
 			
 		<!-- Systems page -->
@@ -233,23 +195,170 @@
 				<a href="./index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			</div>
 			<div data-role="content">
-						<ul>
-							<li id="foli310" class="notranslate      ">
-								<fieldset data-role="controlgroup" data-type="horizontal">
-									<legend id="title310" class="desc">
-										Are you currently using or do you have a history of tobacco use?
-									</legend>
-									<div>
-										<input id="radioDefault_310" name="Field310" type="hidden" value="" />
-										<span>
-											<input id="Field310_0" name="Field310" type="radio" class="field radio" value="Yes" tabindex="39" />
-											<label class="choice" for="Field310_0" > Yes</label> </span>
-										<span>
-											<input id="Field310_1" name="Field310" type="radio" class="field radio" value="No" tabindex="40" />
-											<label class="choice" for="Field310_1" > No</label> </span>
-									</div>
-								</fieldset>
-							</li>
+			  <legend id="title310" class="desc">REVIEW OF SYSTEMS: <i>(CHECK IF NEGATIVE)</i></legend>
+
+	 			<fieldset class="ui-grid-a" style="width:100%">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="a" data-iconpos="right" data-theme="b"> 
+					<h3>GENERAL:</h3>					
+					<fieldset data-role="controlgroup" data-type="horizontal">
+						<label class="choice" for="systems_general_fever">Fever</label>
+						<input id="systems_general_fever" name="systems_general_fever" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_general_headache">Headache</label>
+						<input id="systems_general_headache" name="systems_general_headache" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_general_wloss">Weight Loss</label>
+						<input id="systems_general_wloss" name="systems_general_wloss" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_general_dizzy">Dizziness</label>
+						<input id="systems_general_dizzy" name="systems_general_dizzy" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_general_chills">Chills</label>
+						<input id="systems_general_chills" name="systems_general_chills" type="checkbox" class="field checkbox" />
+					</fieldset>
+				  </div>
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_general_all">All Negative</label>
+							<input id="systems_general_all" name="systems_general_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_general_hpi">See HPI</label>
+							<input id="systems_general_hpi" name="systems_general_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>
+				</fieldset>
+
+	 			<fieldset class="ui-grid-a">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="a" data-iconpos="right" data-theme="e"> 
+					<h3>HEENT:</h3>
+					<fieldset data-role="controlgroup" data-type="horizontal">
+						<label class="choice" for="systems_heent_blurry">Blurry Vision</label>
+						<input id="systems_heent_blurry" name="systems_heent_blurry" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_heent_vloss">Vision Loss</label>
+						<input id="systems_heent_vloss" name="systems_heent_vloss" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_heent_hloss">Hearing Loss</label>
+						<input id="systems_heent_hloss" name="systems_heent_hloss" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_heent_hrloss">Hair Loss</label>
+						<input id="systems_heent_hrloss" name="systems_heent_hrloss" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_heent_nbleed">Nosebleeds</label>
+						<input id="systems_heent_nbleed" name="systems_heent_nbleed" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_heent_gbleed">Bleeding Gums</label>
+						<input id="systems_heent_gbleed" name="systems_heent_gbleed" type="checkbox" class="field checkbox" />
+					</fieldset>
+				  </div>
+				  
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_heent_all">All Negative</label>
+							<input id="systems_heent_all" name="systems_heent_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_heent_hpi">See HPI</label>
+							<input id="systems_heent_hpi" name="systems_heent_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>
+				</fieldset>
+								
+	 			<fieldset class="ui-grid-a">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="a" data-iconpos="right" data-theme="b"> 
+					<h3>PULMONARY:</h3>
+					  <fieldset data-role="controlgroup" data-type="horizontal">
+						<label class="choice" for="systems_pulm_cough">Cough</label>
+						<input id="systems_pulm_cough" name="systems_pulm_cough" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_pulm_sob">S.O.B.</label>
+						<input id="systems_pulm_sob" name="systems_pulm_sob" type="checkbox" class="field checkbox" />
+						<label class="choice" for="systems_pulm_sputum">Productive Sputum</label>
+						<input id="systems_pulm_sputum" name="systems_pulm_sputum" type="checkbox" class="field checkbox" />
+					  </fieldset>
+				  </div>
+				  
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_general_all">All Negative</label>
+							<input id="systems_general_all" name="systems_general_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_general_hpi">See HPI</label>
+							<input id="systems_general_hpi" name="systems_general_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>
+				</fieldset>
+				
+	 			<fieldset class="ui-grid-a">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="a" data-iconpos="right" data-theme="e"> 
+					<h3>CARDIOVASCULAR:</h3>
+					More to come...
+				  </div>
+				  
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_general_all">All Negative</label>
+							<input id="systems_general_all" name="systems_general_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_general_hpi">See HPI</label>
+							<input id="systems_general_hpi" name="systems_general_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>
+				</fieldset>
+								
+	 			<fieldset class="ui-grid-a">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="a" data-iconpos="right" data-theme="b"> 
+					<h3>GASTROINTESTINAL:</h3>
+					More to come...
+				  </div>
+				  
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_general_all">All Negative</label>
+							<input id="systems_general_all" name="systems_general_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_general_hpi">See HPI</label>
+							<input id="systems_general_hpi" name="systems_general_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>
+				</fieldset>
+								
+	 			<fieldset class="ui-grid-a">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="b" data-iconpos="right" data-theme="e"> 
+					<h3>GENITO-URINARY / GYN:</h3>
+					More to come...
+				  </div>
+				  
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_general_all">All Negative</label>
+							<input id="systems_general_all" name="systems_general_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_general_hpi">See HPI</label>
+							<input id="systems_general_hpi" name="systems_general_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>				  
+				</fieldset>
+								
+	 			<fieldset class="ui-grid-a">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="a" data-iconpos="right" data-theme="b"> 
+					<h3>NEUROLOGY:</h3>
+					More to come...
+				  </div>
+				  
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_general_all">All Negative</label>
+							<input id="systems_general_all" name="systems_general_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_general_hpi">See HPI</label>
+							<input id="systems_general_hpi" name="systems_general_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>
+				</fieldset>
+				
+	 			<fieldset class="ui-grid-a">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="a" data-iconpos="right" data-theme="e"> 
+					<h3>MUSCULOSKELITAL: </h3>
+					More to come...
+				  </div>
+				  
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_general_all">All Negative</label>
+							<input id="systems_general_all" name="systems_general_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_general_hpi">See HPI</label>
+							<input id="systems_general_hpi" name="systems_general_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>
+				</fieldset>
+				
+	 			<fieldset class="ui-grid-a">
+				  <div class="ui-block-a" style="width:70%" data-role="collapsible" data-content-theme="a" data-iconpos="right" data-theme="b"> 
+					<h3>SKIN:</h3>
+					<ul>
 							<li id="foli311" class="notranslate      ">
 								<fieldset data-role="controlgroup" data-type="horizontal">
 									<legend id="title311" class="desc">
@@ -311,7 +420,18 @@
 								</fieldset>
 							</li>
 						</ul>
-				</div>
+				  </div>
+				  
+				  <div class="ui-block-b" style="width:30%; padding-left:20px">
+						<fieldset data-role="controlgroup" data-type="horizontal" >
+							<label class="choice" for="systems_general_all">All Negative</label>
+							<input id="systems_general_all" name="systems_general_all" type="checkbox" class="field checkbox" />
+							<label class="choice" for="systems_general_hpi">See HPI</label>
+							<input id="systems_general_hpi" name="systems_general_hpi" type="checkbox" class="field checkbox" />
+						</fieldset>
+				  </div>
+				</fieldset>
+			</div>	
 			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
 				<li><a href="#patient">Patient Info</a></li>
 				<li><a href="#history">History</a></li>
@@ -401,28 +521,7 @@
 
 		</div> <!-- End of Page wrapper myPage -->
 		
-		<script>
-			$(document).ready(function() {
-				var $sigdiv = $("#signature").jSignature({'UndoButton':true});
-				//var transitions = [ 'pop', 'slide', 'fade', 'flip', 'flow', 'turn', 'slidefade', 'slide', 'slideup', 'slidedown' ];
-				var transition = 'slidefade';
-				$('a').each(function() {
-					// Set the default page transitions
-					//transition = transitions[Math.floor(Math.random()*10)]
-                	$(this).attr('data-transition', transition);
-				});
-			});			
-			var app = {
-				init: function() { 
-					// Send to desired home page once page is loaded
-					window.setTimeout(app.homePage, 100); 
-				},
-				homePage: function() {
-					$.mobile.changePage($("#patient"), 'none');
-						window.setTimeout(function() {$('#myPage').css('visibility','visible')}, 100); 
-					}
-			}
-		</script>
+		<script src="js/app.js"></script>
 
 	</body>
 </html>
