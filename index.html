@@ -84,17 +84,9 @@
 					<label for="Field1">Last Name</label> </span>
 					<input id="Field1" name="Field1" type="text" value="" size="14" tabindex="4" />
 				</div>
-				<div class="ui-grid-b">
-					<label class="ui-block-a" style="width:40%" id="title3" for="Field3"> Chief Complaint: </label>
-					<fieldset data-mini="true" style="width:60%" class="ui-block-b" data-role="controlgroup" data-type="horizontal">
-						<button type="button" data-mini="false" data-role="button" data-icon="gear"  data-iconpos="right" id="record">Record</button>
-						<button type="button" data-mini="false" data-role="button" data-icon="alert" data-iconpos="right" id="pause">Pause</button>
-						<button type="button" data-mini="false" data-role="button" data-icon="delete" data-iconpos="right" id="stop">Stop</button>
-						<button type="button" data-mini="false" data-role="button" data-icon="rarrow" data-iconpos="right" id="play">Play</button>
-					</fieldset>
-				</div>
-				<textarea class="ui-block-solo" id="Field3" name="Field3" class="field textarea small" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
 
+				<label id="title3" for="Field3"> Chief Complaint: </label>
+				<textarea class="ui-block-solo" id="Field3" name="Field3" class="field textarea small" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
 			</div>
 			
 			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar" ><ul>
@@ -113,8 +105,18 @@
 				<a href="index.html" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 			</div>
 			<div data-role="content">
-				<label class="desc" id="title4" for="Field4"> History of Present Illness: </label>
-				<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup=""></textarea>
+				<div class="ui-grid-b">
+					<label  data-mini="true" class="ui-block-a" style="width:40%;height:22px;padding:0" id="title4" for="Field4"> History of Present Illness: </label>
+					<fieldset class="ui-block-b" style="width:60%;position:relative;height:22px;top:-10px;padding:0" data-role="controlgroup" data-type="horizontal">
+						<button type="button" data-mini="true" data-role="button" data-icon="gear"  data-iconpos="right" id="record">Record</button>
+						<button type="button" data-mini="true" data-role="button" data-icon="alert" data-iconpos="right" id="pause">Pause</button>
+						<button type="button" data-mini="true" data-role="button" data-icon="delete" data-iconpos="right" id="stop">Stop</button>
+						<button type="button" data-mini="true" data-role="button" data-icon="rarrow" data-iconpos="right" id="play">Play</button>
+					</fieldset>
+				</div>
+					<textarea style="padding:0" id="Field4" name="Field4" class="field textarea small" spellcheck="true" rows="10" cols="50" tabindex="6" onkeyup="">
+					</textarea>
+				
 					<fieldset data-role="controlgroup" data-type="horizontal">
 						<legend id="title207" class="desc">Family History: <i>(check all that apply)</i></legend>
 						<input id="Field207" name="Field207" type="checkbox" class="field checkbox" value="Cancer" tabindex="16" />
@@ -168,16 +170,10 @@
 										</span>
 					</fieldset>
 
-								<label class="desc" id="title4" for="Field4"> Please list any medication allergies that you have : </label>
-								<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="36" onkeyup="" ></textarea>
-								<label class="desc" id="title306" for="Field306"> Please list any medications you are currently taking (and dosage if known) : </label>
-								<textarea id="Field306" name="Field306" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="37" onkeyup="" ></textarea>
-								<label class="desc" id="title308" for="Field308"> If you are a woman, are you currently pregnant, or is there a possibility that you are pregnant? </label>
-								<select id="Field308" name="Field308" class="field select medium" tabindex="38" >
-										<option value="" selected="selected"></option>
-										<option value="Yes" > Yes </option>
-										<option value="No" > No </option>
-								</select>
+					<label class="desc" id="title4" for="Field4"> Please list any medication allergies that you have : </label>
+					<textarea id="Field4" name="Field4" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="36" onkeyup="" ></textarea>
+					<label class="desc" id="title306" for="Field306"> Please list any medications you are currently taking (and dosage if known) : </label>
+					<textarea id="Field306" name="Field306" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="37" onkeyup="" ></textarea>
 			</div>
 			<div data-role="footer" data-id="nav" data-position="fixed"><div data-role="navbar"><ul>
 				<li><a href="#patient">Patient Info</a></li>
